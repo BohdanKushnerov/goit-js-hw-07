@@ -36,16 +36,16 @@ function onImgClick(event) {
     `<img src="${event.target.dataset.source}" width="800" height="600"/>`,
     {
       onShow: (instance) => {
-        galleryRef.addEventListener("keydown", escOnClick);
+        galleryRef.addEventListener("keydown", onEscClick);
       },
       onClose: (instance) => {
-        galleryRef.removeEventListener("keydown", escOnClick);
+        galleryRef.removeEventListener("keydown", onEscClick);
       }
     }
   );
   instance.show();
 
-  function escOnClick(event) {
+  function onEscClick(event) {
     // console.log(event.code);
     if (event.code === "Escape") {
       instance.close();
