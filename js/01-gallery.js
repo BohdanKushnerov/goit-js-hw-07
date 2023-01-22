@@ -9,7 +9,7 @@ galleryRef.innerHTML = itemsMarkup;
 function createGalleryItemsMarkup(items) {
   return items
     .map(({ preview, original, description }) => {
-      return `<li class="gallery__item">
+      return `<div class="gallery__item">
                 <a class="gallery__link" href="${original}">
                   <img
                     class="gallery__image"
@@ -18,7 +18,7 @@ function createGalleryItemsMarkup(items) {
                     alt="${description}"
                   />
                 </a>
-              </li>`;
+              </div>`;
     })
     .join("");
 }
@@ -28,6 +28,7 @@ galleryRef.addEventListener("click", onImgClick);
 function onImgClick(event) {
   event.preventDefault();
   // console.log(event.target.nodeName);
+  console.log(event.target.dataset.source);
   if (event.target.nodeName !== "IMG") {
     return;
   }
@@ -40,7 +41,7 @@ function onImgClick(event) {
       },
       onClose: (instance) => {
         galleryRef.removeEventListener("keydown", onEscClick);
-      }
+      },
     }
   );
   instance.show();

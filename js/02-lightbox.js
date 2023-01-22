@@ -22,9 +22,9 @@ function createGalleryItemsMarkup(items) {
     .join("");
 }
 
-const lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox(".gallery a", {
   /* options */
-  captionsData: 'alt',
+  captionsData: "alt",
   captionPosition: "bottom",
   captionDelay: 250,
 });
